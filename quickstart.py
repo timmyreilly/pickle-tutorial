@@ -15,6 +15,8 @@ print(j.keys())
 
 w3 = Web3(HTTPProvider())
 
+web3.utils
+
 print (w3.eth.accounts[0]) 
 
 c = w3.eth.contract(abi=j['abi'], bytecode=j['bytecode']) 

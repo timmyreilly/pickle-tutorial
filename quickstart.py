@@ -22,7 +22,8 @@ c = w3.eth.contract(abi=j['abi'], bytecode=j['bytecode'])
 for x in c.functions: 
     print (x) 
 
-
+# Our referral contract has lots of construction parameters... 9 in fact 
+# deploy_txn = c.constructor(w3.eth.accounts[0], 'c', 'c', 'c', 'c', '12', 1, '1', 2).transact()
 
 # # compiled_sol = compile_source(contract_source_code) # Compiled source code
 # # contract_interface = compiled_sol['<stdin>:Greeter']

@@ -298,10 +298,137 @@ print( fizzTwo )
 
 class HamSandwichFactorySix: 
     value = '5'
-    def setValue(newValue): 
-        value = newValue 
+    def setValue(self, newValue): 
+        print(newValue) 
+        self.value = newValue 
     
-    def getValue()
-        return value
+    def getValue(self): 
+        return self.value
 
-HSFS = 
+HSFS = HamSandwichFactorySix() 
+
+print(HSFS.value)
+
+HSFS.setValue(3)
+
+print(HSFS.value) 
+
+result = HSFS.getValue() 
+
+print ( "result: " , result) 
+
+# Alright this is a good start we've got a base class and some other good stuff to start working. 
+# Let's see if we can do some work with JSON files. 
+
+try: 
+    import derp as derp 
+except ImportError as err:
+    print(err)
+
+try: 
+    import Referral as r
+except ImportError as err: 
+    print(err) 
+
+# Hmmmm.... how do we get this Referral.json out of our filesystem and into our program... 
+
+f = open('derp.txt', 'r')
+
+print( dir(f) )
+
+try: 
+    print(f.read())
+except UnicodeDecodeError as err:
+    print('Not good', err) 
+
+
+with open('derp.txt', 'r') as fTwo: 
+    read_data = f.read()
+    print(read_data) 
+
+print(fTwo.closed)
+
+f.close() 
+
+try: 
+    print(f.closed)
+    f.read()  
+except ValueError as err: 
+    print ('we just closed it silly... ', err)
+
+# Okay so let's open that file again... 
+
+with open('derp.txt', 'r', encoding='ISO-8859-1') as fThree:
+    read_data = fThree.read() 
+    print(read_data)
+
+# This codec thing is weird. Just recognize there are different codecs. 
+
+# Let's move on to JSON this will be more common for our workloads. First import the json library. 
+import json 
+
+# Here's the location of our referral file: 
+# C:\Users\tireilly\GitHub\python-warmup\truff-n-stuff\build\contracts\Referral.json
+
+with open('./truff-n-stuff/build/contracts/Referral.json', 'r') as JSONFile: 
+    j = json.load(JSONFile) 
+
+print(j)
+print(j.keys())  
+
+
+# Cool we now have our JSON object that we can interface with... let's get it talking to web3 
+# 
+#  https://github.com/ethereum/web3.py 
+
+# from solc import compile_source 
+
+# contract_source_code = '''
+# pragma solidity ^0.4.0;
+
+# contract Greeter {
+#     string public greeting;
+
+#     function Greeter() {
+#         greeting = 'Hello';
+#     }
+
+#     function setGreeting(string _greeting) public {
+#         greeting = _greeting;
+#     }
+
+#     function greet() constant returns (string) {
+#         return greeting;
+#     }
+# }
+# '''
+
+# Something is wrong with the documentation in their readme as of April 3rd 2018. 
+
+# compiled_sol = compile_source(contract_source_code) 
+# contract_interface = compiled_sol['<stdin>:Greeter']
+
+# We need to get the compiled_sol from our Json file. 
+
+# Let's get our web3 in place and try and throw our JSON at it... 
+
+import web3 
+from web3 import Web3, HTTPProvider
+w3 = Web3(HTTPProvider()) 
+
+
+
+
+# for x in j.keys():
+#     print ("hmm...", x) 
+#     print (j[x])
+#     try: 
+#         contract_interface = j[x]
+#         contract = w3.eth.contract(abi=j['abi'], bytecode=j['bytecode']) 
+#         tx_hash = contract.deploy(transaction={'from': w3.eth.accounts[0], 'gas': 410000})
+#         print('hey that one worked!') 
+#     except EnvironmentError as err: 
+#         print ("that didn't work")
+
+print(j.keys())
+

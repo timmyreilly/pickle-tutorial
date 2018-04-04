@@ -274,3 +274,46 @@ AFourthPerson.getAndStoresTheBreadTwo((res) => {
 )
 
 // what you can see that some of the buffers are prefixed with yep, but they come through asynchronously... that's sort of amazing. 
+/* 
+// I think a lot of the new Syntactic sugar and neat things you can do with JavaScript can be exciting and make it seem like you're doing incredible things
+But I'm just struggling with the basics of asynchrounous programming and how you effectively use callbacks. It seems like a cool idea, but I don't always know 
+if I have the depth of understanding to fully understand a complex javascript system. 
+*/ 
+
+// what if we just call https.get... 
+
+let breadPhoto = null; 
+
+https.get(breadLocation, (res) => {
+    res.on('data', (d) => {
+        breadPhoto += d; 
+        // okay this really screws it up... print ('we on the inside? ', breadPhoto)
+    })
+})
+
+print("bread photo... nopde : ", breadPhoto); 
+
+// hmmm breadPhoto is null... 
+// Looks like we need some sort of callback to get the response back to us. 
+
+let breadPhotoTwo; 
+
+breadPhotoTwo = AFourthPerson.getAndStoresTheBreadTwo((res) => {
+    res.on(
+        'data', (d) => {
+            breadPhoto += d; 
+        }
+    )
+    res.on('end', () => {
+        breadPhotoTwo = breadPhoto; 
+        print("bread photo two: ", breadPhotoTwo.slice(0,50)); 
+    })
+
+})
+
+// so in this case we get the value in breadPhotoTwo and its cool I guess, but still feels a little klunky. 
+// how can we be sure we've some data an a more elegant method. 
+
+// let's try promises. 
+
+

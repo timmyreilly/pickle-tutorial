@@ -316,4 +316,40 @@ breadPhotoTwo = AFourthPerson.getAndStoresTheBreadTwo((res) => {
 
 // let's try promises. 
 
+// actually screw promises let's figure out this whole functional thing a little bit more. 
+// I'm going to pass an object into a method let it add the result of the call to bread and get the result on the other side. 
+
+AFifthPerson = {
+    legs : 0
+}
+
+// if person has two legs then they should come back with bread. 
+
+AFifthPerson.addLeg = function(){
+    this.legs += 1; 
+}
+
+AFifthPerson.addLeg(); 
+
+print('How many legs: ', AFifthPerson.legs); 
+
+AFifthPerson.getBread = function(){
+    this.hasBread = true; 
+}
+
+function getBread() {
+    this.hasBread = true; 
+    setTimeout(() => {
+        this.hasBread = !this.hasBread; 
+        console.log(this.hasBread)
+    }, 0)
+}
+
+getBread(); 
+
+// alright we're slowing down... let's get back to scope. 
+
+// variables have different scope. variables can exist in a function scope. 
+
+// let's start small. 
 

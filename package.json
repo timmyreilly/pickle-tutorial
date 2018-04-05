@@ -1,0 +1,22 @@
+{
+  "name": "python-warmup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "quickstart.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timmyreilly/pickle-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timmyreilly/pickle-tutorial/issues"
+  },
+  "homepage": "https://github.com/timmyreilly/pickle-tutorial#readme",
+  "dependencies": {
+    "lodash": "^4.17.5"
+  }
+}

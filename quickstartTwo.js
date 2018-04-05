@@ -698,7 +698,7 @@ print('resultado2, ', resultado2);
 print('yarr items: ', items); 
 
 const resultado3 = items.reduce((prev, curr) => {
-    prev.points = prev.points + curr.points; 
+    prev.points += curr.points; 
     print(prev); 
     return prev; 
 }).points; 

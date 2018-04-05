@@ -159,3 +159,4 @@ print(bigCities);
 
 
 // Good stuff let's talk about joining data. 
+// hmm maybe not, this seems to be pretty d3 dependent. 

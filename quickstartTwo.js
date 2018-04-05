@@ -631,7 +631,9 @@ Math.max(4, 3, 2);
 const items = [
     { name: 'ball', points: 2 },
     { name: 'coin', points: 3 },
-    { name: 'candy', points: 4 }
+    { name: 'candy', points: 4 },
+    { name: 'tim', points: 43}, 
+    { name: 'steve', points: 430}
 ];
 // ^^^ Don't change ^^^
 
@@ -641,13 +643,67 @@ const result = items.map(
     /* ==^^^ Replace this code ^^^== */
 );
 
-const resultingValue = items.map( n => n.name); 
+const resultingValue = items.map(n => n.name);
 
-print(result, ' ', resultingValue); 
+print(result, ' ', resultingValue);
 
 // filter where are the points are greater than or equal to four. 
 
-const theLowerNumbers = items.filter( n=> n.points >= 3); 
+const theHigherNumbers = items.filter(n => n.points >= 3);
 
-print(theLowerNumbers)
+const theLowerNumbers = items.filter(
+    /* ==vvv Replace this code vvv== */
+    (n) => { return n.points <= 3 }
+    /* ==^^^ Replace this code ^^^== */
+);
+
+print(theHigherNumbers, ' ', theLowerNumbers)
+
+print('witches: ',   
+    [0, 1, 2, 3, 4].reduce(
+        function (accumulator, currentValue, currentIndex, array) {
+            return accumulator +  currentValue;
+        }
+    )
+); 
+
+// okay this seems pretty doable why is this not working. 
+
+print('ac baby: ', [0, 1, 2, 3, 5].reduce(
+    (a, c) => (a + c) 
+)); 
+
+const resultado = items.reduce(
+    (a, b, c) => { 
+        print('a: ', a)
+        print('b: ', b)
+        print('c: ', c) 
+        a.points += b.points 
+        return a; 
+        // print('c: ',c)
+        // a += c.points; 
+        
+    }
+)
+
+print('resultado: ', resultado); 
+
+
+const resultado2 = [1, 2, 3, 4].reduce(function(prev, curr){
+    return prev + curr; 
+})
+
+print('resultado2, ', resultado2); 
+
+print('yarr items: ', items); 
+
+const resultado3 = items.reduce((prev, curr) => {
+    prev.points = prev.points + curr.points; 
+    print(prev); 
+    return prev; 
+}).points; 
+
+print('resultado3: ', resultado3); 
+
+// grr this map and reduce stuff is driving me crazy... 
 

@@ -157,3 +157,5 @@ var bigCities = data.filter(function(d) {return d.population > 500000})
 
 print(bigCities); 
 
+
+// Good stuff let's talk about joining data. 

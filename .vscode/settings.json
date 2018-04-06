@@ -1,5 +1,4 @@
 {
     "python.pythonPath": "${workspaceFolder}\\tutorial-env\\Scripts\\python.exe",
-    "python.linting.pylintEnabled": false,
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"     
+    "python.linting.pylintEnabled": false
 }

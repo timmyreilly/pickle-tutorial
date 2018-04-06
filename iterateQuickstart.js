@@ -511,3 +511,21 @@ adddddd(1, 2)
     console.log('total: ', x)
     console.log(rA, rB, rC)
 }); 
+
+// This async and promise stuff is hard and requires lots of practice. 
+// Don't give up now!
+
+const xGetPromies = new Promise(
+    function(resolve, reject){
+        let result =''; 
+        https.get(breadLocation, (res) => {
+            res.on('done', (d) => {
+                result += d
+            }); 
+            resolve(d); 
+        }).on('error', (e) => {
+            reject(e); 
+        })
+    }
+)
+

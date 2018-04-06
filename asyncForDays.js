@@ -123,3 +123,136 @@ getUsingRequest(breadLocation)
 // it also feel like we described how we want to do this... 
 
 // okay how about this request-promises thing... it uses Bluebird - '... a full featured promise library with unmatched performance.' 
+
+const rp = require('request-promise'); 
+
+rp(breadLocation)
+    .then(function(rawData){
+        console.log(rawData.slice(0, 100)); 
+
+    })
+    .catch(function(err){
+        // crawling failed
+        console.log('woooooops'); 
+    })
+
+// whoa that was easy... 
+// that just worked. 
+
+// this is kinda crazy: https://github.com/request/request-promise 
+// it makes sense, using Requests with promises would get really repetative. 
+
+// Let's keep practicing with the ten and such. 
+/*
+if (Math.floor(Math.random() * 20) >= 18) {
+                    console.log(d);
+                }
+*/
+
+// Math.floor(Math.random() * 20) 
+
+new Promise(function(resolve, reject){
+    // a mock async action using setTimeout
+    setTimeout(function() {
+        const rnd = Math.floor(Math.random() * 10); 
+        if(rnd > 5)
+        resolve(`Good luck: ${rnd}`)
+        else
+        reject(`Bad luck: ${rnd}`); 
+    }, 3000); 
+})
+.then(function(result){
+    console.log(result); 
+})
+.catch(function(result){
+    console.log(result)}
+);
+
+// ooooh yeah I like how simple that is. 
+
+// How about chaining our thens...
+
+new Promise(function(resolve, reject){
+    setTimeout(function() { resolve(10); }, 2000)
+})
+.then(function(num) { console.log('first then: ', num); return num *2; })
+.then(function(num) { console.log('second then: ', num); return num * 2; })
+.then(function(num) { console.log('third then: ', num); return num;})
+.catch(function(num) { console.log('not so good'); }); 
+
+
+// Whoa... Promise.all take an array of promises and fires callback when they're all resolved. 
+
+// const promise1 = getUsingRequest; 
+// const promise2 = getUsingRequest; 
+
+// Promise.all([promise1, promise2]).then(function(results){
+//     // both promises resolved 
+// })
+// .catch(function(error){
+//     // one ore more promises was rejected 
+// })
+
+/*
+
+rp(breadLocation)
+    .then(function(rawData){
+        console.log(rawData.slice(0, 100)); 
+
+    })
+    .catch(function(err){
+        // crawling failed
+        console.log('woooooops'); 
+    })
+
+*/ 
+
+
+var request1 = rp(breadLocation)
+var request2 = rp(breadLocation); 
+
+// Promise.all([request1, request2]).then(function(results){
+//     console.log('Then: ', results); 
+// }).catch(function(err){
+//     console.log("Catch: ", err); 
+// });
+
+
+// hmm ended up with much more data than I expected... Let's try another one
+
+
+var req1 = new Promise(function(resolve, reject){
+    // A mock async action using setTimeout 
+    setTimeout(function() { resolve('FIRST!'); }, 4000)
+});
+
+var req2 = new Promise(function(resolve, reject) {
+    setTimeout(function() { resolve('SECOND'); }, 3000); 
+});
+
+var req3 = new Promise(function(resolve, reject){
+    setTimeout(function() { reject('DUMB Third one'); }, 4500); 
+})
+
+var req4 = new Promise(function(resolve, reject){
+    setTimeout(function() { reject('DUMB Fourth one'); }, 4500); 
+})
+
+Promise.all([req1, req2])
+.then(function(results) {
+    console.log('Then: ', results); 
+}).catch(function(err){
+    console.log('Catch: ', err); 
+}); 
+
+// Uh - oh it's a race. 
+// A promise.race
+
+Promise.race([req3, req4]).then(function(one){
+    console.log('then: ', one); 
+}).catch(function(one, two) {
+    console.log('catch: ', one ,' catch2?: ', two); 
+})
+
+// This stuff is crazy!
+// Promisify all the things... am I right? 

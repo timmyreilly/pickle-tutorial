@@ -707,3 +707,36 @@ print('resultado3: ', resultado3);
 
 // grr this map and reduce stuff is driving me crazy... 
 
+
+
+// Wow we're down here on line 712. 
+// 
+
+// Tagged Template Literals. 
+
+// Tagged Template Literals. --- literally a tagged template. 
+
+// literally think a template. 
+// But give it tags. Bam tagged template....
+
+// yo but wait... tagged template... Thats not what this is. Of course not. This literraly the tagged template literals. 
+// These are the liters of the tagged templates Few words not less. Seriously. 
+// okay find tagged template literals are poorly named. But that's how it is in programming every once in a while. 
+
+// Once you practice with them everyday for a couple weeks they'll become like second nature. 
+
+function highlight(strings, ...value){
+    const interpolation = strings.reduce((prev, current) => {
+
+    })
+}
+
+// This picture is great: http://www.theregencyballroom.com/events/detail/337806 
+
+// Could i just templatize this entire document? // Turn it into a single document of template code? 
+
+// still it wouldn't make any sense... 
+// Wellllllll should we go to this concert? 
+
+// Let's do TypeScript now! 
+

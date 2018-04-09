@@ -256,3 +256,42 @@ Promise.race([req3, req4]).then(function(one){
 
 // This stuff is crazy!
 // Promisify all the things... am I right? 
+
+// Ahh screw it let's go to Tagged Template Literals! 
+const say = console.log; 
+const name = "THE NAMEs BOND"; 
+
+say(`Hello ${name}, funny seeing you here. `); 
+
+// Funny it's tagged template literally amazing. 
+/* 
+
+The best part is. Functions can be prefixed to a template literal! When a function called this way, the first parameter is an array of the strings that appear between the template's interpolated variables, and the subsequent parameters are the interpolated values. Use a spread opertor ... to capture all of them. 
+
+I feel like this spread operator is a big deal. 
+You can spread your data out... 
+Over anything?
+
+What can't you spread your data on? 
+
+Can I spread it on onto a notification? 
+*/ 
+
+// var notifiction = `${...newObject()}`;  ... not so good. We need a toppings array. 
+
+var notification = PieceOfToast([toppings]); 
+
+
+
+// sourceOfData = (pay attention to this data source); 
+// It's a value in a database. It's a rest endpoint. It's a socket to a database? 
+
+
+const dataJam = {['yo pay attention to me' , "you're losing money.", "sector b is flooding"]};
+
+// imagine you'r application is just like a piece of bread. 
+// What do you want on that bread? Something sweet? Something sour? 
+// Well you're going to need to spread it on. 
+// Or maybe sprinkle it on - cinnamon sugar fans out ther anyone? 
+
+

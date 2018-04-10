@@ -21,3 +21,7 @@ let student = new Student('tim ', 'm', 'fasdfreilly');
 
 document.body.innerHTML = ggreeter(student); 
 
+// Okay let's try some different stuff. 
+
+// How about retrieving objects from Service Bus... 
+
